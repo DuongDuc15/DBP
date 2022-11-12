@@ -248,7 +248,7 @@ def main(args):
 
     #Text Encoder
     if args.use_offline_gpt2:
-        text_encoder = GPT2Tokenizer.from_pretrained('./gpt2model')
+        text_encoder = GPT2Tokenizer.from_pretrained('NlpHUST/gpt2-vietnamese')
     elif args.debug_mode:
         text_encoder = GPT2Tokenizer.from_pretrained('gpt2')
     else:
