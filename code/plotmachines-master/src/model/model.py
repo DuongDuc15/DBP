@@ -177,7 +177,7 @@ class GPT2BaseModel(nn.Module):
         super(GPT2BaseModel,self).__init__()
 
         if use_offline_gpt2:
-            self.lmmodel = GPT2NeighborLMHeadModel.from_pretrained('./gpt2model', n_ctx=n_ctx+gen_len, n_positions=n_ctx+gen_len)
+            self.lmmodel = GPT2NeighborLMHeadModel.from_pretrained('NlpHUST/gpt2-vietnamese', n_ctx=n_ctx+gen_len, n_positions=n_ctx+gen_len)
         elif cfg.debug_mode:
             self.lmmodel = GPT2NeighborLMHeadModel.from_pretrained('gpt2', n_ctx=n_ctx + gen_len,
                                                                 n_positions=n_ctx + gen_len)
@@ -618,7 +618,7 @@ class PlotMachinesModel(nn.Module):
 
         self.memupd = GatedMemoryUpdate(cfg, n_ctx-2+cfg.memstatesize)
         if use_offline_gpt2:
-            self.lmmodel = GPT2MemLMHeadModel.from_pretrained('./gpt2model', n_positions=n_ctx + gen_len)
+            self.lmmodel = GPT2MemLMHeadModel.from_pretrained('NlpHUST/gpt2-vietnamese', n_positions=n_ctx + gen_len)
         elif cfg.debug_mode:
             self.lmmodel = GPT2MemLMHeadModel.from_pretrained('gpt2', n_positions=n_ctx + gen_len)
         else:
